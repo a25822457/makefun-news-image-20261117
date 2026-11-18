@@ -41,13 +41,16 @@ news: every fact stays straight.
 
 - `main.py` — the entry program (Python 3.13, standard library only):
   copies `entry.png` to `/output/entry.png`. No network, deterministic.
-- `entry.png` — the front page, 1024×1024 PNG.
-- `render_v2.py` — the script that drew `entry.png` (PIL, DejaVu fonts).
+- `entry.png` — the front page, 1024×1024. v3: the externally refined
+  version of the v2 render — same layout, same 6 stories, all text
+  unchanged. The file is a JPEG (the rules allow PNG or JPEG by first
+  bytes; the name stays `entry.png`), quality 92, ~470 KB.
+- `render_v2.py` — the script that drew the v2 `entry.png` (PIL, DejaVu fonts).
 - `README.md`, `LICENSE` (MIT).
 
 ## Reproduce
 
 ```sh
-python3 render_v2.py        # redraw entry.png
+python3 render_v2.py        # redraws the v2 original (not the refined entry.png)
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py
 ```
